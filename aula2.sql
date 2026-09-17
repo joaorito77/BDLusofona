@@ -13,3 +13,6 @@ WHERE state IN ('TX','CA')
 SELECT list_price  
 FROM production.products
 WHERE list_price > 150
+
+/* MAX(COL1) DÁ VALOR MÁXIMO DESSA COLUNA */
+/* FIQUEI NO EXERCICIO 1.5*/
