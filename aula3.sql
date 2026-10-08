@@ -64,7 +64,8 @@ SELECT * FROM production.categories; */
 /*SELECT phone AS Telefone, state AS Estado FROM sales.customers c
 WHERE c.state = 'TX' AND c.phone IS NULL;*/
 
-/*SELECT phone AS Telefone, state AS Estado FROM sales.customers c
+/*SELECT phone AS Telefone, state AS Estado 
+FROM sales.customers c
 WHERE c.state = 'CA'AND c.phone IS NOT NULL*/
 
 /*SELECT store_name AS Nome_Loja, zip_code AS Codigo_Postal
@@ -79,6 +80,84 @@ WHERE email LIKE '%serrano%';*/
 FROM sales.staffs s
 WHERE manager_id IS NULL;*/
 
-SELECT first_name AS Nome, last_name AS Apelido, phone AS Telefone 
+/*SELECT first_name AS Nome, last_name AS Apelido, phone AS Telefone 
 FROM sales.staffs s
-WHERE phone LIKE '%55';
+WHERE phone LIKE '%55';*/
+
+/*SELECT first_name AS Nome
+FROM sales.staffs s
+WHERE first_name LIKE 'M%';*/
+
+/*SELECT order_date AS Data_Encomenda
+FROM sales.orders o
+WHERE order_date BETWEEN '2016-01-01' AND '2016-01-15';*/
+
+/*SELECT customer_id AS ID_Cliente, order_date AS Data_Encomenda
+FROM sales.orders o
+WHERE customer_id IN (541,1212,1326) AND YEAR(order_date) BETWEEN 2016 AND 2017;*/
+
+/*SELECT email, RIGHT(email,LEN(email)-CHARINDEX('@',email)) AS Dominio
+FROM sales.customers;*/
+
+
+/*SELECT first_name as Nome, last_name as Apelido, email as Email,
+
+    CASE 
+        WHEN LEN(email) <= 25 THEN email 
+        ELSE LOWER(
+             CONCAT(
+                LEFT(first_name,1),
+                '.',
+                last_name,
+                RIGHT(email,LEN(email)-CHARINDEX('@',email) + 1)
+            )
+        )
+    END AS 'Novo Email'
+
+FROM sales.customers c;*/
+
+/*UPDATE sales.customers
+SET email = LOWER(
+    CONCAT(
+        LEFT(first_name,1),
+        '.',
+        last_name,
+        RIGHT(email,LEN(email)-CHARINDEX('@',email) + 1)
+    )
+)
+WHERE len(email) > 25;*/
+
+/*SELECT product_name AS Nome_Produto, list_price AS 'Preço (s/IVA)',
+    CASE 
+    WHEN list_price > 4000 THEN 'IVA 50%'
+        WHEN list_price > 3000 THEN 'IVA 23%'
+        WHEN list_price > 2000 THEN 'IVA 13%'
+    WHEN list_price > 1000 THEN 'IVA 6%'
+    ELSE 'IVA 0%'
+    END AS '% IVA',
+    CASE 
+        WHEN list_price > 4000 THEN list_price * 1.5
+        WHEN list_price > 3000 THEN list_price * 1.23
+        WHEN list_price > 2000 THEN list_price * 1.13
+        WHEN list_price > 1000 THEN list_price * 1.06
+        ELSE list_price
+    END AS 'Preço (c/IVA)'
+    FROM production.products p */
+
+/*SELECT MAX(quantity) AS 'Máxima Quantidade'
+FROM sales.order_items o */
+
+/*SELECT AVG(list_price) AS 'Preço Médio'
+FROM production.products */
+
+
+
+
+
+
+
+
+
+
+
+
