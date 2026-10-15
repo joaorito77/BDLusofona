@@ -1,4 +1,7 @@
 /* CREATE DATABASE BikeStoresAnalytics
+
+USE BikeStoresAnalytics;
+
 SELECT name FROM sys.databases WHERE name = 'BikeStoresAnalytics'; VERIFICAR SE A BASE DE DADOS EXISTE
 CREATE SCHEMA "metrics"
 
@@ -59,7 +62,4 @@ VALUES
 SELECT * FROM events.messages;
 
 */
-USE BikeStoresAnalytics;
-
-
 
